@@ -137,7 +137,6 @@ public class ClientController {
 
     @PostMapping(value = "product/add")
     public ResponseEntity<String> addProduct ( @RequestBody Product product){
-
         Product savedProduct = this.ccs.addProduct(product);
 
         if (savedProduct.equals(product)){
