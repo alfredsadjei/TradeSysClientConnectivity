@@ -40,7 +40,6 @@ public class ClientConnectivityService{
     private ProductRepo productRepo;
 
     public Client authenticate (String username, String password){
-
          return  this.clientRepo.authenticate(username,password).
                  orElseThrow(()->new UserNotFoundException("User not found"));
 
