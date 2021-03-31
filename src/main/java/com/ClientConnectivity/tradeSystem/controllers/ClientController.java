@@ -60,7 +60,7 @@ public class ClientController {
     }
 
     @PostMapping(value = "client/makeorder")
-    public ResponseEntity<PostOrderResponse> makeOrder (@RequestBody com.example.consumingwebservice.wsdl.ProductOrder productOrder){
+    public ResponseEntity<com.example.consumingwebservice.wsdl.ProductOrder> makeOrder (@RequestBody com.example.consumingwebservice.wsdl.ProductOrder productOrder){
 
         //Client client = ccs.findClientByID();
 
@@ -68,7 +68,7 @@ public class ClientController {
            productOrder.setQuantityOwned(5000);
 
         PostOrderResponse newResponse = orderValidationClient.validateOrder(productOrder);
-        return new ResponseEntity<>(newResponse,HttpStatus.OK);
+        return new ResponseEntity<>(newResponse.getOrder(),HttpStatus.OK);
 
     }
 
